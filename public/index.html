@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Service Desk - Ticket Quality Auditor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo-icon"><i class="fa-solid fa-robot-astray"></i><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="logo-text">
+            <h2>AuditAI</h2>
+            <span>SD-13 Service Desk</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button id="nav-btn-new" class="nav-item active"><i class="fa-solid fa-plus"></i> New Audit</button>
+        <button id="nav-btn-history" class="nav-item"><i class="fa-solid fa-clock-rotate-left"></i> Audit History</button>
+      </nav>
+
+      <div class="sidebar-stats">
+        <div class="stat-card">
+          <span class="stat-label">Total Audited</span>
+          <span id="stat-total" class="stat-value">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Avg Quality</span>
+          <span id="stat-avg" class="stat-value">0%</span>
+        </div>
+      </div>
+      
+      <div class="sidebar-footer">
+        <span class="badge sandbox-badge" id="mode-indicator"><i class="fa-solid fa-circle-nodes"></i> Sandbox Mode</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section id="screen-submit" class="screen active">
+        <div class="welcome-banner">
+          <h1>Ticket Quality Auditor</h1>
+          <p>Prevent vague "It's broken" tickets. Submit a draft ticket below and our AI auditor will score its completeness and clarify missing details before assignment.</p>
+        </div>
+
+        <div class="glass-card submit-card">
+          <div class="card-header">
+            <h3><i class="fa-solid fa-pen-nib"></i> Draft Support Ticket</h3>
+            <button id="load-sample-btn" type="button" class="btn btn-secondary btn-sm"><i class="fa-solid fa-wand-magic-sparkles"></i> Load Sample Ticket</button>
+          </div>
+          <form id="ticket-form">
+            <div class="form-group">
+              <label for="ticket-title">Ticket Title</label>
+              <input type="text" id="ticket-title" placeholder="e.g., Application crashes when clicking checkout button" required autocomplete="off">
+            </div>
+            
+            <div class="form-group">
+              <label for="ticket-desc">Detailed Description</label>
+              <textarea id="ticket-desc" rows="6" placeholder="Describe what went wrong, what actions you were doing, browser info, or any error messages..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block"><i class="fa-solid fa-magnifying-glass-chart"></i> Start Quality Audit</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="screen-audit" class="screen">
+        <div class="audit-grid">
+          <div class="audit-dashboard">
+            
+            <div class="glass-card metrics-card">
+              <h3><i class="fa-solid fa-gauge-high"></i> Completeness Score</h3>
+              
+              <div class="overall-gauge-container">
+                <svg class="gauge-svg" viewBox="0 0 120 120">
+                  <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+                  <circle id="gauge-progress" class="gauge-progress-bar" cx="60" cy="60" r="50"></circle>
+                </svg>
+                <div class="gauge-text">
+                  <span id="gauge-score-value">0%</span>
+                  <span class="gauge-sub">Quality Rating</span>
+                </div>
+              </div>
+
+              <div class="sub-metrics-list">
+                <div class="sub-metric-item">
+                  <div class="metric-info">
+                    <span>Steps to Reproduce</span>
+                    <span id="metric-val-steps" class="metric-score">0/5</span>
+                  </div>
+                  <div class="progress-track">
+                    <div id="metric-bar-steps" class="progress-fill fill-steps" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div class="sub-metric-item">
+                  <div class="metric-info">
+                    <span>Environment Details</span>
+                    <span id="metric-val-env" class="metric-score">0/5</span>
+                  </div>
+                  <div class="progress-track">
+                    <div id="metric-bar-env" class="progress-fill fill-env" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div class="sub-metric-item">
+                  <div class="metric-info">
+                    <span>Expected vs Actual</span>
+                    <span id="metric-val-exp" class="metric-score">0/5</span>
+                  </div>
+                  <div class="progress-track">
+                    <div id="metric-bar-exp" class="progress-fill fill-exp" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card feedback-card">
+               <h3><i class="fa-solid fa-circle-info"></i> Auditor Feedback</h3>
+               <p id="auditor-reasoning">Analyzing your ticket, please wait...</p>
+               <div id="missing-breakdown"></div>
+            </div>
+
+          </div> 
+          
+          <div class="audit-chat-container">
+            <div class="glass-card chat-card">
+              <div class="chat-header">
+                <div class="agent-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                <div class="agent-title">
+                  <h4>Auditor Agent</h4>
+                  <span class="agent-status"><span class="dot"></span> Online</span>
+                </div>
+              </div>
+
+              <div id="chat-messages" class="chat-messages">
+                </div>
+
+              <form id="chat-input-form" class="chat-input-form">
+                <input type="text" id="chat-input-field" placeholder="Provide clarifying details..." required autocomplete="off">
+                <button type="submit" class="btn btn-primary btn-round"><i class="fa-solid fa-paper-plane"></i></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-assignment" class="screen">
+        <div class="success-animation-container">
+          <div class="success-ring"><i class="fa-solid fa-check"></i></div>
+          <h2>Ticket Successfully Triaged!</h2>
+          <p>The ticket quality met standard guidelines and has been assigned to the correct engineering queue.</p>
+        </div>
+
+        <div class="triage-card-wrapper">
+          <div class="glass-card triage-card">
+            <div class="triage-badge-strip">
+              <span class="badge badge-assigned"><i class="fa-solid fa-network-wired"></i> Assigned</span>
+              <span id="triage-priority" class="badge badge-priority">High Priority</span>
+            </div>
+            
+            <div class="triage-main">
+              <h3 id="triage-title">Ticket Title Here</h3>
+              <p class="triage-summary" id="triage-summary">Summarized ticket description...</p>
+              
+              <div class="triage-meta-grid">
+                <div class="meta-item">
+                  <span class="meta-label">Assigned Queue</span>
+                  <span id="triage-queue" class="meta-value">Backend Team</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Quality Score</span>
+                  <span id="triage-final-score" class="meta-value score-highlight">95%</span>
+                </div>
+              </div>
+
+              <div class="triage-justification">
+                <h5>Assignment Justification:</h5>
+                <p id="triage-justification-text">Reasoning...</p>
+              </div>
+            </div>
+
+            <div class="triage-actions">
+              <button id="btn-triage-new" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Audit Another Ticket</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-history" class="screen">
+        <div class="section-header">
+          <h2>Audit & Triage History</h2>
+          <p>A history of all tickets processed, scored, and assigned by the Auditor Agent.</p>
+        </div>
+
+        <div class="glass-card history-card">
+          <div class="table-responsive">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Session ID</th>
+                  <th>Ticket Title</th>
+                  <th>Quality Score</th>
+                  <th>Status</th>
+                  <th>Assigned Queue</th>
+                  <th>Priority</th>
+                </tr>
+              </thead>
+              <tbody id="history-table-body">
+                </tbody>
+            </table>
+          </div>
+          <div id="history-empty" class="history-empty">
+            <i class="fa-solid fa-folder-open"></i>
+            <p>No audits processed in this session yet.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "TICKET-001",
+    "expectedScores": {
+      "stepsScore": 1,
+      "envScore": 0,
+      "expectedActualScore": 2,
+      "overallScore": 20
+    },
+    "expectedQuestions": [
+      "What device, operating system, and web browser were you using when the screen went blank?",
+      "Can you provide step-by-step instructions of what you clicked leading up to the blank page?",
+      "Are there any specific error messages shown on the screen or in the browser console?"
+    ],
+    "expectedRoute": "Frontend Team"
+  },
+  {
+    "id": "TICKET-002",
+    "expectedScores": {
+      "stepsScore": 2,
+      "envScore": 4,
+      "expectedActualScore": 3,
+      "overallScore": 60
+    },
+    "expectedQuestions": [
+      "Which payment method (e.g., Credit Card, PayPal, Stripe) were you trying to use when it timed out?",
+      "Did you notice if any errors were logged in your browser console, or did a specific error code show?"
+    ],
+    "expectedRoute": "Backend Team"
+  },
+  {
+    "id": "TICKET-003",
+    "expectedScores": {
+      "stepsScore": 5,
+      "envScore": 5,
+      "expectedActualScore": 5,
+      "overallScore": 100
+    },
+    "expectedQuestions": [],
+    "expectedRoute": "Frontend Team"
+  }
+]

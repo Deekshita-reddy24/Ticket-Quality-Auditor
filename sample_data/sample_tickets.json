@@ -1,0 +1,20 @@
+[
+  {
+    "id": "TICKET-001",
+    "title": "It is broken",
+    "description": "I tried logging in and it just gives a blank page. Please fix ASAP.",
+    "notes": "Completely missing environment details, expected vs actual behavior detail, and exact steps to reproduce (e.g. which login button)."
+  },
+  {
+    "id": "TICKET-002",
+    "title": "Payment gateway timeout on checkout page",
+    "description": "Whenever I click 'Buy Now', the spinner keeps rotating and then times out. I am using Chrome browser on Windows 11.",
+    "notes": "Has environment info, but lacks exact steps to reproduce (payment methods?) and expected vs actual (though expected is implied)."
+  },
+  {
+    "id": "TICKET-003",
+    "title": "Broken CSS alignment on navigation menu",
+    "description": "Steps to reproduce:\n1. Open site homepage.\n2. Shrink screen to mobile view (under 768px).\n3. Observe menu layout.\n\nExpected: The burger menu icon should align to the right.\nActual: The burger menu icon overflows to a new line.\n\nEnvironment: Safari 17 on macOS Sonoma, mobile responsive view.",
+    "notes": "Fully complete ticket. Contains steps, environment, and expected/actual details. Should score high immediately."
+  }
+]

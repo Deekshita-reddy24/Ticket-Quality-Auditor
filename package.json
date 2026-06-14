@@ -1,0 +1,31 @@
+{
+  "name": "ticket-quality-auditor",
+  "version": "1.0.0",
+  "description": "AI Prototype Challenge - SD-13: Ticket Quality Auditor",
+  "main": "server.js",
+  "scripts": {
+    "start": "python main.py",
+    "start-node": "node server.js",
+    "test": "set PYTHONPATH=.&& pytest tests/test_main.py"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "groq-sdk": "^1.2.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  },
+  "keywords": [
+    "ai",
+    "gemini",
+    "audit",
+    "helpdesk",
+    "prototype"
+  ],
+  "author": "Ashoka Women's Engg. College Team",
+  "license": "MIT"
+}
