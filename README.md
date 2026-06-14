@@ -92,3 +92,11 @@ The test suite validates:
 ## 💡 Engineering Assumptions & Limitations
 - **State management**: Session data is held in-memory. Restarting the server resets active sessions. For production, integrate Redis or PostgreSQL.
 - **Agent Limit**: To respect users' time, the auditor asks a maximum of 3 clarifying questions before automatically assigning the ticket based on available information.
+
+
+## Team Resumes
+You can view the resumes of our project team members here:
+* **Deekshita Reddy** - [View Resume](./resumes/Deekshita%20Reddy%20...pdf)
+* **GK Sneha Deepika** - [View Resume](./resumes/GK_Sneha_Deepika_Resume.pdf)
+* **S. Vishnu Sireesha** - [View Resume](./resumes/S.Vishnu%20Sireesha.pdf)
+* **Shahanaz Banu** - [View Resume](./resumes/shahanaz%20banu.tmp.pdf)
