@@ -20,28 +20,32 @@ A working prototype for **SD-13: Ticket Quality Auditor**, developed for the Cam
 ```
 ## 📁 Repository Structure
 
+# Ticket-Quality-Auditor
 .
-├── project-files/              # Core project source code
-│   ├── .vscode/                # Editor settings
-│   ├── data/                   # Data storage
+├── project-files/
+│   ├── assets/                 # Project screenshots and media
+│   │   ├── ai-audit-feedback.png
+│   │   ├── submission-interface.png
+│   │   ├── triage-history.png
+│   │   └── successful-triage.png
+│   ├── data/                   # Project datasets
 │   │   ├── expected_scores.json
 │   │   └── sample_tickets.json
-│   ├── public/                 # Static assets
+│   ├── public/                 # Static front-end resources
 │   │   ├── app.js
 │   │   ├── index.html
 │   │   └── style.css
-│   ├── tests/                  # Automated testing suite
-│   │   └── auditor.test.js
-│   ├── ai_usage_note.md        # AI usage documentation
-│   ├── main.py                 # Python entry point
-│   ├── package-lock.json       # Node.js dependencies lock file
-│   ├── package.json            # Node.js dependencies
-│   ├── prompts_used.md         # Logs of prompts used
-│   ├── requirements.txt        # Python dependencies
-│   └── server.js               # Express server controller
-├── team-info/                  # Team member documentation
-├── .gitignore                  # Git ignore rules
-└── README.md                   # Project documentation
+│   ├── tests/
+│   ├── ai_usage_note.md
+│   ├── main.py
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── prompts_used.md
+│   ├── requirements.txt
+│   └── server.js
+├── team-info/
+├── .gitignore
+└── README.md
 
 ---
 
