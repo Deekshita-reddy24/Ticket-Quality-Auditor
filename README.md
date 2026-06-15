@@ -96,6 +96,22 @@ The test suite validates:
 - **Agent Limit**: To respect users' time, the auditor asks a maximum of 3 clarifying questions before automatically assigning the ticket based on available information.
 
 
+
+## 👥 Team Information
+
+**Team ID:** 8  
+**Problem Statement ID:** SD-13  
+**Institution:** Ashoka Women's Engineering College  
+
+**Team Members & Contributions:**
+
+- Deekshita Reddy Kancharla – Backend Development & Integration  
+- G.K. Sneha Deepika – Frontend Development & UI Design  
+- S. Vishnu Sireesha – AI Integration & Testing  
+- Shahnaz Bhanu – Documentation & Project Support
+
+
+
 ## Team Resumes
 You can view the resumes of our project team members here:
 * **Deekshita Reddy** - [View Resume](./resumes/Deekshita%20Reddy%20...pdf)
