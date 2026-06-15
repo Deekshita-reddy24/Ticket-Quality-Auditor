@@ -2,7 +2,9 @@
 
 A working prototype for **SD-13: Ticket Quality Auditor**, developed for the Campus AI Prototype Challenge. This system intercepts vague "It's broken!" tickets, audits their quality, gathers clarifying info using an agent conversation loop, and automatically routes them to the correct engineering queue once complete.
 
----
+## 🎥 Project Demo Video
+
+[▶️ Watch the Demo Video](https://www.loom.com/share/d2a443aad90c466e92ec912a6043531c)
 
 ## 🌟 Key Features
 
