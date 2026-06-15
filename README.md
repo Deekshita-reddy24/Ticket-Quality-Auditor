@@ -36,15 +36,15 @@ A working prototype for **SD-13: Ticket Quality Auditor**, developed for the Cam
 │   │   ├── index.html
 │   │   └── style.css
 │   ├── tests/
-│   ├── ai_usage_note.md
 │   ├── main.py
 │   ├── package-lock.json
 │   ├── package.json
-│   ├── prompts_used.md
 │   ├── requirements.txt
 │   └── server.js
 ├── team-info/
 ├── .gitignore
+├── prompts_used.md
+── ai_usage_note.md
 └── README.md
 
 ---
