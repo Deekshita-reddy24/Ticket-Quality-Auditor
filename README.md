@@ -20,23 +20,28 @@ A working prototype for **SD-13: Ticket Quality Auditor**, developed for the Cam
 
 ## 📁 Repository Structure
 
-```text
-ticket-quality-auditor/
-├── public/                 # Static Frontend Web App
-│   ├── index.html          # Semantic dashboard structure
-│   ├── style.css           # Premium glassmorphism dark-theme CSS
-│   └── app.js              # State logic & SVG animated gauge controller
-├── tests/                  # Automated Testing Suite
-│   └── auditor.test.js     # API integration tests (Jest + SuperTest)
-├── sample_data/            # Sample Datasets
-│   ├── sample_tickets.json # Vague vs Detailed ticket test inputs
-│   └── expected_scores.json# Target score benchmarks
-├── server.js               # Express Server & Triage Agent controller
-├── prompts_used.md         # System prompts and few-shot logs
-├── .env.example            # Environment variables template
-├── package.json            # Node.js dependencies & run scripts
-└── README.md               # Setup and usage guide (this file)
-```
+.
+├── project-files/              # Core project source code
+│   ├── .vscode/                # Editor settings
+│   ├── data/                   # Data storage
+│   │   ├── expected_scores.json
+│   │   └── sample_tickets.json
+│   ├── public/                 # Static assets
+│   │   ├── app.js
+│   │   ├── index.html
+│   │   └── style.css
+│   ├── tests/                  # Automated testing suite
+│   │   └── auditor.test.js
+│   ├── ai_usage_note.md        # AI usage documentation
+│   ├── main.py                 # Python entry point
+│   ├── package-lock.json       # Node.js dependencies lock file
+│   ├── package.json            # Node.js dependencies
+│   ├── prompts_used.md         # Logs of prompts used
+│   ├── requirements.txt        # Python dependencies
+│   └── server.js               # Express server controller
+├── team-info/                  # Team member documentation
+├── .gitignore                  # Git ignore rules
+└── README.md                   # Project documentation
 
 ---
 
