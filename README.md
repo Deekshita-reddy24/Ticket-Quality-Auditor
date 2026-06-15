@@ -17,7 +17,7 @@ A working prototype for **SD-13: Ticket Quality Auditor**, developed for the Cam
 4. **Dual-Mode LLM Engine**: Runs using the **Google Gemini API** (with a `GEMINI_API_KEY`), but automatically defaults to a sandbox mock agent when offline or without a key.
 
 ---
-
+```
 ## 📁 Repository Structure
 
 .
