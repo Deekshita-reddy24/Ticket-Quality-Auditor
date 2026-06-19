@@ -14,7 +14,7 @@ A working prototype for **SD-13: Ticket Quality Auditor**, developed for the Cam
    - Expected vs Actual behavior
 2. **Interactive Agent Loop**: Asks up to 3 context-aware clarifying questions to gather missing information. Dynamic re-scoring is performed as the user replies.
 3. **Automated Triage & Routing**: Once the quality threshold (85%+) is satisfied, it summarizes and assigns the ticket to the appropriate queue (Frontend, Backend, Database, DevOps, QA).
-4. **Dual-Mode LLM Engine**: Runs using the **Google Gemini API** (with a `GEMINI_API_KEY`), but automatically defaults to a sandbox mock agent when offline or without a key.
+4. **Dual-Mode LLM Engine**: Runs using the **Groq** (with a `GROQ_API_KEY`), but automatically defaults to a sandbox mock agent when offline or without a key.
 
 ---
 ```
